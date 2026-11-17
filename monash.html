@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monash Student Hub</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f6f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #006dae;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #004b7c;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #006dae;
+        }
+
+        .banner {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #e8f3fa;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #006dae;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .post {
+            background-color: #f5f6f8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #006dae;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #004b7c;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>Monash Student Hub</h1>
+        <p>Connect, Explore and Share</p>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#forum">Student Forum</a>
+        <a href="#profile">Profile</a>
+    </nav>
+
+    <main>
+
+        <!-- HOME -->
+        <section id="home">
+            <h2>Welcome to Monash Student Hub!</h2>
+
+            <!-- Add your Monash image here -->
+            <img src="monash.jpg"
+                 alt="Monash University"
+                 class="banner">
+
+            <p>
+                A space for students to connect,
+                explore information and share experiences.
+            </p>
+
+            <a href="#dashboard" class="button">
+                Explore Dashboard
+            </a>
+
+            <a href="#forum" class="button">
+                Visit Student Forum
+            </a>
+        </section>
+
+        <!-- DASHBOARD -->
+        <section id="dashboard">
+            <h2>Student Dashboard</h2>
+
+            <p>Welcome to your dashboard!</p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Students</h3>
+                    <p>150</p>
+                </div>
+
+                <div class="card">
+                    <h3>Forum Posts</h3>
+                    <p>35</p>
+                </div>
+
+                <div class="card">
+                    <h3>Activities</h3>
+                    <p>12</p>
+                </div>
+
+            </div>
+
+            <h3>Latest Updates</h3>
+            <p>No new updates at the moment.</p>
+        </section>
+
+        <!-- STUDENT FORUM -->
+        <section id="forum">
+            <h2>Student Forum</h2>
+
+            <p>
+                Connect with other students and
+                participate in discussions.
+            </p>
+
+            <h3>Recent Discussions</h3>
+
+            <div class="post">
+                <h4>Welcome to the Student Forum!</h4>
+                <p>Posted by Student 1</p>
+                <p>Hello everyone! Welcome to our community.</p>
+            </div>
+
+            <div class="post">
+                <h4>Student Experiences</h4>
+                <p>Posted by Student 2</p>
+                <p>How is everyone finding their studies?</p>
+            </div>
+
+            <h3>Create a New Post</h3>
+
+            <form>
+                <label for="post-title">Post Title:</label>
+                <input type="text" id="post-title"
+                       placeholder="Enter a title">
+
+                <label for="post-message">Message:</label>
+                <textarea id="post-message" rows="5"
+                          placeholder="Write your message here..."></textarea>
+
+                <button type="button">Publish Post</button>
+            </form>
+
+        </section>
+
+        <!-- PROFILE -->
+        <section id="profile">
+            <h2>My Profile</h2>
+
+            <p><strong>Name:</strong> Student Name</p>
+            <p><strong>University:</strong> Monash University</p>
+            <p><strong>Course:</strong> Student Course</p>
+
+            <a href="#home" class="button">Back to Home</a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Monash Student Hub | University Project Prototype</p>
+    </footer>
+
+</body>
+</html>
