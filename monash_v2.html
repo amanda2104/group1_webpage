@@ -1,0 +1,1039 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monash Student Insights</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #e9edf3;
+    color: #26334a;
+}
+
+.app {
+    max-width: 430px;
+    min-height: 100vh;
+    margin: auto;
+    background: #f7f9fc;
+    padding-bottom: 85px;
+}
+
+/* HEADER */
+
+header {
+    background: #006dae;
+    color: white;
+    padding: 20px;
+    border-radius: 0 0 22px 22px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.monash-logo {
+    width: 76px;
+    height: auto;
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.brand h2 {
+    font-size: 18px;
+    letter-spacing: .5px;
+}
+
+.brand p {
+    font-size: 11px;
+    margin-top: 5px;
+    color: #e0efff;
+}
+
+/* SCREENS */
+
+.screen {
+    display: none;
+    padding: 20px;
+}
+
+.screen.active {
+    display: block;
+}
+
+h3 {
+    font-size: 22px;
+    margin-bottom: 17px;
+}
+
+h4 {
+    margin-bottom: 9px;
+}
+
+p {
+    line-height: 1.5;
+}
+
+/* CARDS */
+
+.card {
+    background: white;
+    padding: 18px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 12px #00000009;
+}
+
+.hero {
+    background: #e1effa;
+    padding: 23px;
+    border-radius: 17px;
+    margin-bottom: 22px;
+}
+
+.hero h2 {
+    color: #006dae;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.hero p {
+    color: #475569;
+    font-size: 14px;
+}
+
+/* BUTTONS */
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 13px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: .2s;
+}
+
+button:hover {
+    opacity: .85;
+}
+
+.primary {
+    background: #006dae;
+    color: white;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.secondary {
+    background: #e5f1fa;
+    color: #006dae;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #f0f4f8;
+    color: #26334a;
+    margin: 8px 0;
+    border: 2px solid transparent;
+}
+
+.option.selected {
+    border-color: #006dae;
+    background: #e1effa;
+}
+
+/* FORMS */
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #d6dce5;
+    border-radius: 9px;
+    font-size: 14px;
+    background: white;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.small {
+    font-size: 12px;
+    color: #718096;
+}
+
+.success {
+    color: #16834a;
+    font-weight: bold;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+/* ADMIN */
+
+.stat {
+    display: inline-block;
+    width: 47%;
+    background: #e8f3fc;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 1%;
+}
+
+.stat strong {
+    display: block;
+    font-size: 26px;
+    color: #006dae;
+    margin-bottom: 5px;
+}
+
+.bar {
+    background: #e5edf5;
+    height: 9px;
+    border-radius: 10px;
+    margin: 7px 0 14px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    background: #006dae;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* PROFILE */
+
+.profile-avatar {
+    background: #e1effa;
+    color: #006dae;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+    margin-bottom: 12px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #edf0f4;
+    margin: 15px 0;
+}
+
+/* NAVIGATION */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 430px;
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    padding: 11px 3px;
+    box-shadow: 0 -3px 12px #00000010;
+    z-index: 10;
+}
+
+.bottom-nav button {
+    background: white;
+    color: #64748b;
+    font-size: 11px;
+    padding: 7px 4px;
+}
+
+.bottom-nav button.selected {
+    color: #006dae;
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    padding: 15px;
+    color: #94a3b8;
+    font-size: 11px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- HEADER WITH MONASH LOGO -->
+
+<header>
+    <div class="brand">
+
+        <img
+        src="monash logo.png"
+        alt="Monash University Logo"
+        class="monash-logo">
+
+        <div>
+            <h2>STUDENT INSIGHTS</h2>
+            <p>Student Research & Data Collection</p>
+        </div>
+
+    </div>
+</header>
+
+
+<!-- HOME SCREEN -->
+
+<section id="home" class="screen active">
+
+    <div class="hero">
+
+        <h2>Welcome!</h2>
+
+        <p>
+        Your student experience matters.
+        Help us understand student life and
+        improve the university experience.
+        </p>
+
+        <button class="primary"
+        onclick="show('register')">
+        Get Started →
+        </button>
+
+    </div>
+
+    <h3>Explore the App</h3>
+
+    <div class="card">
+        <h4>📍 Location Information</h4>
+        <p class="small">Share your suburb and campus details.</p>
+        <button class="secondary"
+        onclick="show('location')">Explore</button>
+    </div>
+
+    <div class="card">
+        <h4>🚌 Transportation</h4>
+        <p class="small">Tell us how you travel to university.</p>
+        <button class="secondary"
+        onclick="show('transport')">Explore</button>
+    </div>
+
+    <div class="card">
+        <h4>📝 Student Survey</h4>
+        <p class="small">Share your university experience.</p>
+        <button class="secondary"
+        onclick="show('survey')">Start Survey</button>
+    </div>
+
+</section>
+
+
+<!-- REGISTRATION SCREEN -->
+
+<section id="register" class="screen">
+
+    <h3>Student Registration</h3>
+
+    <div class="card">
+
+        <label>Full Name</label>
+        <input id="name" placeholder="Enter your name">
+
+        <label>Student Email</label>
+        <input id="email" type="email"
+        placeholder="Enter your email">
+
+        <label>Student ID</label>
+        <input id="studentid" placeholder="Student ID">
+
+        <label>Course</label>
+        <input id="course"
+        placeholder="e.g. Information Technology">
+
+        <label>Campus</label>
+        <select id="campus">
+            <option>Clayton</option>
+            <option>Caulfield</option>
+            <option>Peninsula</option>
+            <option>Parkville</option>
+            <option>Other</option>
+        </select>
+
+        <button class="primary"
+        onclick="registerStudent()">
+        Create Profile
+        </button>
+
+        <p id="registerMsg" class="success"></p>
+
+    </div>
+
+</section>
+
+
+<!-- LOCATION SCREEN -->
+
+<section id="location" class="screen">
+
+    <h3>📍 Location Information</h3>
+
+    <div class="card">
+
+        <label>Home Suburb</label>
+        <input id="suburb"
+        placeholder="e.g. Clayton">
+
+        <label>Postcode</label>
+        <input id="postcode"
+        placeholder="e.g. 3168">
+
+        <label>University Campus</label>
+        <select id="locationCampus">
+            <option>Clayton</option>
+            <option>Caulfield</option>
+            <option>Peninsula</option>
+            <option>Parkville</option>
+        </select>
+
+        <label>Distance to Campus</label>
+        <select id="distance">
+            <option>Less than 5 km</option>
+            <option>5–10 km</option>
+            <option>10–20 km</option>
+            <option>20–30 km</option>
+            <option>More than 30 km</option>
+        </select>
+
+        <button class="primary"
+        onclick="saveLocation()">
+        Save Location
+        </button>
+
+        <button class="secondary"
+        onclick="getLocation()">
+        📍 Use My Current Location
+        </button>
+
+        <p id="locationMsg" class="success"></p>
+
+        <p class="small">
+        Current location is optional and only requested
+        when you press the location button.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- TRANSPORT SCREEN -->
+
+<section id="transport" class="screen">
+
+    <h3>🚌 Transportation Details</h3>
+
+    <div class="card">
+
+        <p>How do you usually travel to Monash?</p>
+
+        <div id="transportOptions">
+
+            <button class="option"
+            onclick="choose(this,'Train')">
+            🚆 Train
+            </button>
+
+            <button class="option"
+            onclick="choose(this,'Bus')">
+            🚌 Bus
+            </button>
+
+            <button class="option"
+            onclick="choose(this,'Car')">
+            🚗 Car
+            </button>
+
+            <button class="option"
+            onclick="choose(this,'Tram')">
+            🚊 Tram
+            </button>
+
+            <button class="option"
+            onclick="choose(this,'Walking')">
+            🚶 Walking
+            </button>
+
+            <button class="option"
+            onclick="choose(this,'Cycling')">
+            🚲 Cycling
+            </button>
+
+        </div>
+
+        <label>Average Travel Time</label>
+
+        <select id="travelTime">
+            <option>Under 15 minutes</option>
+            <option>15–30 minutes</option>
+            <option>30–60 minutes</option>
+            <option>More than 60 minutes</option>
+        </select>
+
+        <button class="primary"
+        onclick="saveTransport()">
+        Save Information
+        </button>
+
+        <p id="transportMsg" class="success"></p>
+
+    </div>
+
+</section>
+
+
+<!-- SURVEY SCREEN -->
+
+<section id="survey" class="screen">
+
+    <h3>📝 Student Survey</h3>
+
+    <div class="card">
+
+        <label>1. Are you satisfied with campus facilities?</label>
+
+        <select id="facilities">
+            <option>Very satisfied</option>
+            <option>Satisfied</option>
+            <option>Neutral</option>
+            <option>Not satisfied</option>
+        </select>
+
+        <label>2. How often do you visit campus?</label>
+
+        <select id="visits">
+            <option>Every day</option>
+            <option>3–4 times a week</option>
+            <option>1–2 times a week</option>
+            <option>Rarely</option>
+        </select>
+
+        <label>3. Which facilities do you use most?</label>
+
+        <select id="facilityType">
+            <option>Library</option>
+            <option>Student Lounge</option>
+            <option>Computer Labs</option>
+            <option>Food Court</option>
+            <option>Sports Facilities</option>
+        </select>
+
+        <label>4. What improvements would you suggest?</label>
+
+        <textarea id="suggestion"
+        rows="4"
+        placeholder="Write your suggestions here..."></textarea>
+
+        <button class="primary"
+        onclick="submitSurvey()">
+        Submit Survey
+        </button>
+
+        <p id="surveyMsg" class="success"></p>
+
+    </div>
+
+</section>
+
+
+<!-- PROFILE SCREEN -->
+
+<section id="profile" class="screen">
+
+    <h3>👤 Student Profile</h3>
+
+    <div class="card">
+
+        <div class="profile-avatar">👤</div>
+
+        <h2 id="profileName">Student Name</h2>
+
+        <p id="profileEmail" class="small">
+        student@email.com
+        </p>
+
+        <hr>
+
+        <p><b>Student ID:</b>
+        <span id="profileID">Not added</span></p>
+
+        <p><b>Course:</b>
+        <span id="profileCourse">Not added</span></p>
+
+        <p><b>Campus:</b>
+        <span id="profileCampus">Not added</span></p>
+
+        <p><b>Suburb:</b>
+        <span id="profileSuburb">Not added</span></p>
+
+        <p><b>Transport:</b>
+        <span id="profileTransport">Not added</span></p>
+
+        <button class="secondary"
+        onclick="show('register')">
+        Edit Details
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ADMIN DASHBOARD -->
+
+<section id="admin" class="screen">
+
+    <h3>📊 Admin Dashboard</h3>
+
+    <div class="stat">
+        <strong id="totalStudents">0</strong>
+        <span class="small">Registered Students</span>
+    </div>
+
+    <div class="stat">
+        <strong id="totalSurveys">0</strong>
+        <span class="small">Survey Responses</span>
+    </div>
+
+    <div class="card">
+
+        <h4>Transportation Statistics</h4>
+
+        <div id="adminData">
+        <p class="small">No data collected yet.</p>
+        </div>
+
+        <hr>
+
+        <h4>Student Locations</h4>
+
+        <div id="locationData">
+        <p class="small">No location data collected yet.</p>
+        </div>
+
+        <button class="secondary"
+        onclick="downloadCSV()">
+        Download Student Data (CSV)
+        </button>
+
+    </div>
+
+    <div class="card">
+        <h4>Survey Overview</h4>
+        <div id="surveyData">
+        <p class="small">No survey responses yet.</p>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="bottom-nav">
+
+    <button class="selected"
+    onclick="show('home',this)">
+    🏠<br>Home
+    </button>
+
+    <button onclick="show('location',this)">
+    📍<br>Location
+    </button>
+
+    <button onclick="show('survey',this)">
+    📝<br>Survey
+    </button>
+
+    <button onclick="show('profile',this)">
+    👤<br>Profile
+    </button>
+
+    <button onclick="show('admin',this)">
+    📊<br>Admin
+    </button>
+
+</nav>
+
+</div>
+
+
+<script>
+
+// DEMO DATA
+
+let students = [];
+let surveys = [];
+let selectedTransport = "";
+
+// NAVIGATION
+
+function show(id, button) {
+
+    document.querySelectorAll('.screen').forEach(s => {
+        s.classList.remove('active');
+    });
+
+    document.getElementById(id).classList.add('active');
+
+    document.querySelectorAll('.bottom-nav button').forEach(b => {
+        b.classList.remove('selected');
+    });
+
+    if(button) button.classList.add('selected');
+
+    if(id === 'admin') updateAdmin();
+    if(id === 'profile') updateProfile();
+}
+
+
+// REGISTRATION
+
+function registerStudent() {
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const id = document.getElementById('studentid').value.trim();
+
+    if(!name || !email || !id) {
+        alert('Please complete the required fields.');
+        return;
+    }
+
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    const student = {
+        name,
+        email,
+        id,
+        course: document.getElementById('course').value,
+        campus: document.getElementById('campus').value,
+        suburb: '',
+        postcode: '',
+        distance: '',
+        transport: '',
+        travelTime: ''
+    };
+
+    const index = students.findIndex(s => s.id === id);
+
+    if(index >= 0) {
+        Object.assign(students[index], student);
+    } else {
+        students.push(student);
+    }
+
+    document.getElementById('registerMsg').textContent =
+    'Profile saved successfully!';
+
+    updateProfile();
+}
+
+
+// LOCATION
+
+function saveLocation() {
+
+    const suburb = document.getElementById('suburb').value.trim();
+
+    if(!suburb) {
+        alert('Please enter your suburb.');
+        return;
+    }
+
+    const student = students[students.length - 1];
+
+    if(!student) {
+        alert('Please register first.');
+        return;
+    }
+
+    student.suburb = suburb;
+    student.postcode = document.getElementById('postcode').value;
+    student.campus = document.getElementById('locationCampus').value;
+    student.distance = document.getElementById('distance').value;
+
+    document.getElementById('locationMsg').textContent =
+    'Location information saved!';
+
+    updateProfile();
+}
+
+
+// CURRENT LOCATION
+
+function getLocation() {
+
+    if(!navigator.geolocation) {
+        alert('Location is not supported by your browser.');
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+
+        position => {
+
+            document.getElementById('locationMsg').textContent =
+            'Location obtained successfully. Latitude: ' +
+            position.coords.latitude.toFixed(3) +
+            ', Longitude: ' +
+            position.coords.longitude.toFixed(3);
+
+        },
+
+        () => alert('Location permission was not granted.')
+    );
+}
+
+
+// TRANSPORT SELECTION
+
+function choose(button, value) {
+
+    document.querySelectorAll('.option').forEach(b => {
+        b.classList.remove('selected');
+    });
+
+    button.classList.add('selected');
+
+    selectedTransport = value;
+}
+
+
+// SAVE TRANSPORT
+
+function saveTransport() {
+
+    if(!selectedTransport) {
+        alert('Please select a transport method.');
+        return;
+    }
+
+    const student = students[students.length - 1];
+
+    if(!student) {
+        alert('Please register first.');
+        return;
+    }
+
+    student.transport = selectedTransport;
+
+    student.travelTime =
+    document.getElementById('travelTime').value;
+
+    document.getElementById('transportMsg').textContent =
+    'Transportation information saved!';
+
+    updateProfile();
+}
+
+
+// SUBMIT SURVEY
+
+function submitSurvey() {
+
+    const suggestion =
+    document.getElementById('suggestion').value.trim();
+
+    surveys.push({
+
+        facilities: document.getElementById('facilities').value,
+
+        visits: document.getElementById('visits').value,
+
+        facility: document.getElementById('facilityType').value,
+
+        suggestion: suggestion
+
+    });
+
+    document.getElementById('surveyMsg').textContent =
+    'Thank you! Your survey has been submitted.';
+
+    updateAdmin();
+}
+
+
+// STUDENT PROFILE
+
+function updateProfile() {
+
+    const student = students[students.length - 1];
+
+    if(!student) return;
+
+    document.getElementById('profileName').textContent = student.name;
+    document.getElementById('profileEmail').textContent = student.email;
+    document.getElementById('profileID').textContent = student.id;
+    document.getElementById('profileCourse').textContent = student.course || 'Not added';
+    document.getElementById('profileCampus').textContent = student.campus;
+    document.getElementById('profileSuburb').textContent = student.suburb || 'Not added';
+    document.getElementById('profileTransport').textContent = student.transport || 'Not added';
+}
+
+
+// ADMIN DASHBOARD
+
+function updateAdmin() {
+
+    document.getElementById('totalStudents').textContent = students.length;
+
+    document.getElementById('totalSurveys').textContent = surveys.length;
+
+    const methods = {};
+    const locations = {};
+
+    students.forEach(s => {
+
+        if(s.transport) {
+            methods[s.transport] =
+            (methods[s.transport] || 0) + 1;
+        }
+
+        if(s.suburb) {
+            locations[s.suburb] =
+            (locations[s.suburb] || 0) + 1;
+        }
+
+    });
+
+    let html = '';
+
+    for(const [name,count] of Object.entries(methods)) {
+
+        const percentage = (count / students.length) * 100;
+
+        html += `
+        <p>${name}: ${count} student(s)</p>
+        <div class="bar">
+        <div class="bar-fill" style="width:${percentage}%"></div>
+        </div>
+        `;
+    }
+
+    if(!html) html = '<p class="small">No transport data collected yet.</p>';
+
+    document.getElementById('adminData').innerHTML = html;
+
+
+    let locationHTML = '';
+
+    for(const [name,count] of Object.entries(locations)) {
+        locationHTML += `<p>${name}: ${count} student(s)</p>`;
+    }
+
+    if(!locationHTML) {
+        locationHTML = '<p class="small">No location data collected yet.</p>';
+    }
+
+    document.getElementById('locationData').innerHTML = locationHTML;
+
+
+    let surveyHTML = '';
+
+    if(surveys.length) {
+
+        surveyHTML = `
+        <p>Total responses: ${surveys.length}</p>
+        <p>Most recent campus feedback: ${surveys[surveys.length - 1].facilities}</p>
+        `;
+    } else {
+        surveyHTML = '<p class="small">No survey responses yet.</p>';
+    }
+
+    document.getElementById('surveyData').innerHTML = surveyHTML;
+
+}
+
+
+// EXPORT CSV
+
+function downloadCSV() {
+
+    if(students.length === 0) {
+        alert('No student data to export.');
+        return;
+    }
+
+    const rows = [
+
+        ['Name','Email','Student ID','Course','Campus',
+         'Suburb','Postcode','Distance','Transport','Travel Time'],
+
+        ...students.map(s => [
+            s.name,
+            s.email,
+            s.id,
+            s.course,
+            s.campus,
+            s.suburb,
+            s.postcode,
+            s.distance,
+            s.transport,
+            s.travelTime
+        ])
+
+    ];
+
+    const csv = rows.map(row =>
+        row.map(v =>
+            '"' + String(v || '').replace(/"/g,'""') + '"'
+        ).join(',')
+    ).join('\n');
+
+    const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+
+    a.href = url;
+    a.download = 'monash_student_data.csv';
+
+    a.click();
+
+    URL.revokeObjectURL(url);
+
+}
+
+</script>
+
+</body>
+</html>
