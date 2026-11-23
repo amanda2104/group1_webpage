@@ -3,27 +3,42 @@
 <html lang="en">
 
 <head>
+    <!-- Defines the character encoding -->
     <meta charset="UTF-8">
+
+    <!-- Makes the website responsive on different screen sizes -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Title displayed in the browser tab -->
     <title>Group 1 - IT Capstone Team</title>
 
+    <!-- CSS: Controls the appearance of the webpage -->
     <style>
+
+        /* General page styling */
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f7fa;
             padding: 30px;
-        }
-
-        h1 {
-            text-align: center;
+            margin: 0;
             color: #2c3e50;
         }
 
-        p {
+        /* Main heading */
+        h1 {
             text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
         }
 
+        /* Introduction paragraph */
+        .introduction {
+            text-align: center;
+            margin-bottom: 35px;
+            color: #333;
+        }
+
+        /* Team information table */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -31,6 +46,7 @@
             margin-top: 30px;
         }
 
+        /* General table cells */
         th, td {
             border: 1px solid #ddd;
             padding: 15px;
@@ -38,36 +54,84 @@
             vertical-align: top;
         }
 
-        th {
+        /* First header: Category */
+        th:first-child {
             background-color: #355c4d;
             color: white;
         }
 
-        tr:nth-child(even) {
+        /* Team members' names */
+        th:not(:first-child) {
+            background-color: #e3ebe7;
+            color: #2c3e50;
+        }
+
+        /* First column: Category labels */
+        td:first-child {
+            font-weight: bold;
+            background-color: #edf2ef;
+            width: 160px;
+        }
+
+        /* Alternating row colours */
+        tr:nth-child(even) td:not(:first-child) {
             background-color: #f2f2f2;
         }
+
+        /* Project links section */
+        .project-links {
+            margin-top: 40px;
+            padding-bottom: 30px;
+        }
+
+        /* Project links heading */
+        .project-links h2 {
+            color: #355c4d;
+            margin-bottom: 20px;
+        }
+
+        /* Each link appears on a separate line */
+        .project-links a {
+            display: block;
+            margin-bottom: 15px;
+            color: #355c4d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Underline links when the mouse hovers over them */
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 
 <body>
 
+    <!-- MAIN PAGE HEADING -->
     <h1>Meet Our IT Capstone Team - Group 1</h1>
 
-    <p>
+    <!-- Short introduction to the team -->
+    <p class="introduction">
         Get to know our team members,
         their skills, experiences, hobbies
         and future career goals.
     </p>
 
+
+    <!-- TEAM INFORMATION TABLE -->
     <table>
 
+        <!-- Table header: Categories and team members -->
         <tr>
-            <th>Category</th>
-            <th>Amanda Dias</th>
-            <th>Parami Pathumika</th>
-            <th>Jian Zeng</th>
+            <th scope="col">Category</th>
+            <th scope="col">Amanda Dias</th>
+            <th scope="col">Parami Pathumika</th>
+            <th scope="col">Jian Zeng</th>
         </tr>
 
+        <!-- Country of origin -->
         <tr>
             <td>Country</td>
             <td>Brazil</td>
@@ -75,59 +139,77 @@
             <td>China</td>
         </tr>
 
+        <!-- IT skills -->
         <tr>
             <td>IT Skills</td>
+
             <td>
-                Programming (Pyhton), Web and Mobile Development, 
-                Data and Numerical Analysis, Database Management, 
+                Programming (Python),
+                Web and Mobile Development,
+                Data and Numerical Analysis,
+                Database Management,
                 Project Management...
             </td>
+
             <td>
                 Cloud Computing (AWS),
                 Data Entry, SQL, HTML,
                 Networking, Databases,
                 Web Development
             </td>
+
             <td>
                 Basic Python, HTML,
                 CSS and Databases
             </td>
         </tr>
 
+        <!-- Previous work experience -->
         <tr>
             <td>Work Experience</td>
+
             <td>
                 Corporate Concierge at JLL,
                 Hospitality and Customer Service
             </td>
+
             <td>No previous work experience</td>
+
             <td>No previous work experience</td>
         </tr>
 
+        <!-- Personal hobbies and interests -->
         <tr>
             <td>Hobbies</td>
+
             <td>
                 Travelling, Pilates,
-                Photographing, Music, Baking
+                Photography, Music, Baking
             </td>
+
             <td>
                 Sewing and Handcrafting
             </td>
+
             <td>
                 Swimming, Skateboarding
             </td>
         </tr>
 
+        <!-- Future career interests -->
         <tr>
             <td>Future Career Goals</td>
+
             <td>
                 Cybersecurity, UI/UX Design
             </td>
+
             <td>
                 IT Support Specialist,
                 Cybersecurity Analyst,
                 IT Project Coordinator
             </td>
+
             <td>
                 Interested in UI/UX Design
                 and learning more about
@@ -137,8 +219,30 @@
 
     </table>
 
-    <a href="https://amanda2104.github.io/group1_webpage/monash.html">App_Version1</a><p>
-    <a href="https://amanda2104.github.io/group1_webpage/monash_v2">App_Version2</a><p>
-    <a href="https://amanda2104.github.io/group1_webpage/photography.html">Photography_v1</a><p>
-    
-    
+
+    <!-- PROJECT LINKS SECTION -->
+    <!-- Links to other webpages developed by our team -->
+
+    <div class="project-links">
+
+        <h2>Project Links</h2>
+
+        <!-- First version of the Monash application -->
+        <a href="https://amanda2104.github.io/group1_webpage/monash.html">
+            Monash App - Version 1
+        </a>
+
+        <!-- Second version of the Monash application -->
+        <a href="https://amanda2104.github.io/group1_webpage/monash_v2">
+            Monash App - Version 2
+        </a>
+
+        <!-- Photography hobby page for the HobbyHub project -->
+        <a href="https://amanda2104.github.io/group1_webpage/photography.html">
+            HobbyHub - Photography Page
+        </a>
+
+    </div>
+
+</body>
+</html>
