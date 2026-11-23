@@ -3,10 +3,10 @@
 <html lang="en">
 
 <head>
-    <!-- Defines the character encoding -->
+    <!-- Defines the character encoding of the webpage -->
     <meta charset="UTF-8">
 
-    <!-- Makes the website responsive on different screen sizes -->
+    <!-- Makes the webpage responsive on different screen sizes -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Title displayed in the browser tab -->
@@ -54,16 +54,15 @@
             vertical-align: top;
         }
 
-        /* First header: Category */
-        th:first-child {
-            background-color: #355c4d;
-            color: white;
-        }
-
-        /* Team members' names */
-        th:not(:first-child) {
+        /* Team members' names in the header */
+        th {
             background-color: #e3ebe7;
             color: #2c3e50;
+        }
+
+        /* First empty header cell */
+        th:first-child {
+            background-color: #f5f7fa;
         }
 
         /* First column: Category labels */
@@ -90,7 +89,7 @@
             margin-bottom: 20px;
         }
 
-        /* Each link appears on a separate line */
+        /* Each project link appears on a separate line */
         .project-links a {
             display: block;
             margin-bottom: 15px;
@@ -102,6 +101,11 @@
         /* Underline links when the mouse hovers over them */
         .project-links a:hover {
             text-decoration: underline;
+        }
+
+        /* Adjust the table on smaller screens */
+        .table-container {
+            overflow-x: auto;
         }
 
     </style>
@@ -121,103 +125,110 @@
 
 
     <!-- TEAM INFORMATION TABLE -->
-    <table>
+    <!-- The container allows horizontal scrolling on small screens -->
 
-        <!-- Table header: Categories and team members -->
-        <tr>
-            <th scope="col">Category</th>
-            <th scope="col">Amanda Dias</th>
-            <th scope="col">Parami Pathumika</th>
-            <th scope="col">Jian Zeng</th>
-        </tr>
+    <div class="table-container">
 
-        <!-- Country of origin -->
-        <tr>
-            <td>Country</td>
-            <td>Brazil</td>
-            <td>Sri Lanka</td>
-            <td>China</td>
-        </tr>
+        <table>
 
-        <!-- IT skills -->
-        <tr>
-            <td>IT Skills</td>
+            <!-- Table header with team members' names -->
+            <!-- The first cell is intentionally empty -->
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Amanda Dias</th>
+                <th scope="col">Parami Pathumika</th>
+                <th scope="col">Jian Zeng</th>
+            </tr>
 
-            <td>
-                Programming (Python),
-                Web and Mobile Development,
-                Data and Numerical Analysis,
-                Database Management,
-                Project Management...
-            </td>
+            <!-- Country of origin -->
+            <tr>
+                <th scope="row">Country</th>
+                <td>Brazil</td>
+                <td>Sri Lanka</td>
+                <td>China</td>
+            </tr>
 
-            <td>
-                Cloud Computing (AWS),
-                Data Entry, SQL, HTML,
-                Networking, Databases,
-                Web Development
-            </td>
+            <!-- IT skills -->
+            <tr>
+                <th scope="row">IT Skills</th>
 
-            <td>
-                Basic Python, HTML,
-                CSS and Databases
-            </td>
-        </tr>
+                <td>
+                    Programming (Python),
+                    Web and Mobile Development,
+                    Data and Numerical Analysis,
+                    Database Management,
+                    Project Management...
+                </td>
 
-        <!-- Previous work experience -->
-        <tr>
-            <td>Work Experience</td>
+                <td>
+                    Cloud Computing (AWS),
+                    Data Entry, SQL, HTML,
+                    Networking, Databases,
+                    Web Development
+                </td>
 
-            <td>
-                Corporate Concierge at JLL,
-                Hospitality and Customer Service
-            </td>
+                <td>
+                    Basic Python, HTML,
+                    CSS and Databases
+                </td>
+            </tr>
 
-            <td>No previous work experience</td>
+            <!-- Previous work experience -->
+            <tr>
+                <th scope="row">Work Experience</th>
 
-            <td>No previous work experience</td>
-        </tr>
+                <td>
+                    Corporate Concierge at JLL,
+                    Hospitality and Customer Service
+                </td>
 
-        <!-- Personal hobbies and interests -->
-        <tr>
-            <td>Hobbies</td>
+                <td>No previous work experience</td>
 
-            <td>
-                Travelling, Pilates,
-                Photography, Music, Baking
-            </td>
+                <td>No previous work experience</td>
+            </tr>
 
-            <td>
-                Sewing and Handcrafting
-            </td>
+            <!-- Personal hobbies and interests -->
+            <tr>
+                <th scope="row">Hobbies</th>
 
-            <td>
-                Swimming, Skateboarding
-            </td>
-        </tr>
+                <td>
+                    Travelling, Pilates,
+                    Photography, Music, Baking
+                </td>
 
-        <!-- Future career interests -->
-        <tr>
-            <td>Future Career Goals</td>
+                <td>
+                    Sewing and Handcrafting
+                </td>
 
-            <td>
-                Cybersecurity, UI/UX Design
-            </td>
+                <td>
+                    Swimming, Skateboarding
+                </td>
+            </tr>
 
-            <td>
-                IT Support Specialist,
-                Cybersecurity Analyst,
-                IT Project Coordinator
-            </td>
+            <!-- Future career interests -->
+            <tr>
+                <th scope="row">Future Career Goals</th>
 
-            <td>
-                Interested in UI/UX Design
-                and learning more about
-                user experience
-            </td>
-        </tr>
+                <td>
+                    Cybersecurity, UI/UX Design
+                </td>
 
-    </table>
+                <td>
+                    IT Support Specialist,
+                    Cybersecurity Analyst,
+                    IT Project Coordinator
+                </td>
+
+                <td>
+                    Interested in UI/UX Design
+                    and learning more about
+                    user experience
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
 
 
     <!-- PROJECT LINKS SECTION -->
