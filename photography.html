@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
- <head>
-  <!-- HEAD: Browser settings, page title and CSS. Not shown as page content. -->
-  <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <title>
+<head>
+<!-- HEAD: Browser settings, page title and CSS. Not shown as page content. -->
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>
    Photography | HobbyHub
   </title>
-  <style>
+<style>
    /* ============================================================
    HOBBYHUB PHOTOGRAPHY - CSS (visual appearance)
    CSS controls layout, colours, spacing, fonts and mobile view.
@@ -578,490 +579,423 @@ section {
         padding:40px 0;
     }
 }
-  </style>
- </head>
- <body>
-  <!-- BODY: Everything visible on the webpage. id="..." identifies a section; class="..." connects it to CSS. -->
-  <!-- HEADER: HobbyHub logo and navigation links. Each #link scrolls to a matching section ID. -->
-  <header>
-   <div class="nav">
-    <a class="logo" href="#top">
+  
+/* NEW: side-by-side personalisation controls */
+.finder {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:20px}
+/* NEW: gallery cards */
+.gallery-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.gallery-grid figure {margin:0;background:var(--card);border:1px solid var(--line);border-radius:15px;overflow:hidden}
+.gallery-grid img {width:100%;height:225px;object-fit:cover;display:block}
+.gallery-grid figcaption {padding:13px 15px;font-weight:bold}
+.gallery-grid figcaption small {display:block;color:var(--muted);font-size:12px;font-weight:normal}
+/* NEW: unavailable links are labels, not clickable fake buttons */
+.placeholder-label {display:inline-block;padding:6px 11px;background:#e8ebe4;color:#526e5c;border-radius:7px;font-size:13px}
+/* NEW: nested replies inside a discussion post */
+.reply-list {margin:12px 0 0 14px;padding-left:15px;border-left:2px solid var(--line)}
+.reply {padding:8px 0}.reply p {margin:3px 0}
+.reply-form {display:grid;grid-template-columns:1fr;gap:8px;margin-top:12px}
+.reply-form input,.reply-form textarea {width:100%}
+.reply-form button {justify-self:start}
+@media(max-width:700px){.gallery-grid{grid-template-columns:1fr}.finder{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<!-- BODY: Everything visible on the webpage. id="..." identifies a section; class="..." connects it to CSS. -->
+<!-- HEADER: HobbyHub logo and navigation links. Each #link scrolls to a matching section ID. -->
+<header>
+<div class="nav">
+<a class="logo" href="#top">
      Hobby
      <span>
       Hub.
      </span>
-    </a>
-    <nav aria-label="Main navigation">
-     <a href="#about">
+</a>
+<nav aria-label="Main navigation">
+<a href="#about">
       About
-     </a>
-     <a href="#explore">
+     </a><a href="#gallery">My gallery</a>
+<a href="#explore">
       Explore
      </a>
-     <a href="#resources">
+<a href="#resources">
       Resources
      </a>
-     <a href="#community">
+<a href="#community">
       Community
      </a>
-    </nav>
-   </div>
-  </header>
-  <!-- MAIN CONTENT: Everything inside the central page width. -->
-  <main class="wrap" id="top">
-   <!-- HERO: Main heading, two links and a decorative photograph. -->
-   <div class="hero">
-    <div>
-     <div class="eyebrow">
+</nav>
+</div>
+</header>
+<!-- MAIN CONTENT: Everything inside the central page width. -->
+<main class="wrap" id="top">
+<!-- HERO: Main heading, two links and a decorative photograph. -->
+<div class="hero">
+<div>
+<div class="eyebrow">
       HobbyHub / Photography
      </div>
-     <h1>
+<h1>
       See the world
       <br/>
       differently.
      </h1>
-     <p class="lead">
+<p class="lead">
       From your first snapshot to your next photo walk. Explore photography, find inspiration, and connect with curious creatives around Melbourne.
      </p>
-     <div class="buttons">
-      <a class="btn" href="#explore">
+<div class="buttons">
+<a class="btn" href="#explore">
        Explore photography
       </a>
-      <a class="btn secondary" href="#community">
+<a class="btn secondary" href="#community">
        Join the conversation
       </a>
-     </div>
-    </div>
-    <img alt="Camera held outdoors in natural light" src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&amp;fit=crop&amp;w=1100&amp;q=85"/>
-   </div>
-   <!-- ABOUT: Three introduction cards explaining the hobby. -->
-   <section id="about">
-    <div class="section-head">
-     <div>
-      <div class="eyebrow">
+</div>
+</div>
+<img alt="Camera held outdoors in natural light" src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&amp;fit=crop&amp;w=1100&amp;q=85"/>
+</div>
+<!-- ABOUT: Three introduction cards explaining the hobby. -->
+<section id="about">
+<div class="section-head">
+<div>
+<div class="eyebrow">
        Start here
       </div>
-      <h2>
+<h2>
        Photography is for everyone.
       </h2>
-     </div>
-     <p>
+</div>
+<p>
       You don't need expensive gear to get started. Curiosity, light and a little practice can take you a long way.
      </p>
-    </div>
-    <div class="grid">
-     <article class="card">
-      <img alt="Golden sunrise landscape" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&amp;fit=crop&amp;w=700&amp;q=80"/>
-      <div class="body">
-       <span class="tag">
+</div>
+<div class="grid">
+<article class="card">
+<img alt="Golden sunrise landscape" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&amp;fit=crop&amp;w=700&amp;q=80"/>
+<div class="body">
+<span class="tag">
         01 / Learn
        </span>
-       <h3>
+<h3>
         Find your style
        </h3>
-       <p>
+<p>
         Try portraits, landscapes, street photography or everyday moments.
        </p>
-      </div>
-     </article>
-     <article class="card">
-      <img alt="Photography camera" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&amp;fit=crop&amp;w=700&amp;q=80"/>
-      <div class="body">
-       <span class="tag">
+</div>
+</article>
+<article class="card">
+<img alt="Photography camera" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&amp;fit=crop&amp;w=700&amp;q=80"/>
+<div class="body">
+<span class="tag">
         02 / Practice
        </span>
-       <h3>
+<h3>
         Learn the basics
        </h3>
-       <p>
+<p>
         Understand light, composition and how to get more from your camera or phone.
        </p>
-      </div>
-     </article>
-     <article class="card">
-      <img alt="Landscape outdoors" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&amp;fit=crop&amp;w=700&amp;q=80"/>
-      <div class="body">
-       <span class="tag">
+</div>
+</article>
+<article class="card">
+<img alt="Landscape outdoors" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&amp;fit=crop&amp;w=700&amp;q=80"/>
+<div class="body">
+<span class="tag">
         03 / Connect
        </span>
-       <h3>
+<h3>
         Get outside
        </h3>
-       <p>
+<p>
         Find inspiration and look for photography walks and communities nearby.
        </p>
-      </div>
-     </article>
-    </div>
-   </section>
-   <!-- EXPLORE: Filterable tutorials, external events and local business links. -->
-   <section id="explore">
-    <div class="section-head">
-     <div>
-      <div class="eyebrow">
-       Your next step
-      </div>
-      <h2>
-       Explore resources
-      </h2>
-     </div>
-     <p>
-      Filter our sample collection to discover learning materials, local opportunities and useful places.
-     </p>
-    </div>
-    <div aria-label="Filter resources" class="filterbar" role="group">
-     <button aria-pressed="true" class="active" data-filter="all">
-      All
-     </button>
-     <button aria-pressed="false" data-filter="tutorial">
-      Tutorials
-     </button>
-     <button aria-pressed="false" data-filter="event">
-      Events &amp; photo walks
-     </button>
-     <button aria-pressed="false" data-filter="business">
-      Businesses
-     </button>
-    </div>
-    <div class="resource-list" id="resourceList">
-     <article class="resource" data-type="tutorial">
-      <span class="symbol">
-       ▶
-      </span>
-      <div>
-       <span class="tag">
-        Tutorial
-       </span>
-       <h3>
-        Photography basics
-       </h3>
-       <p>
-        Browse beginner-friendly lessons about light, exposure and composition.
-       </p>
-       <a class="text-link" href="https://www.youtube.com/results?search_query=photography+basics+for+beginners" rel="noopener" target="_blank">
-        Explore YouTube tutorials &nearrow;
-       </a>
-      </div>
-     </article>
-     <article class="resource" data-type="event">
-      <span class="symbol">
-       📍
-      </span>
-      <div>
-       <span class="tag">
-        Find an event
-       </span>
-       <h3>
-        Melbourne photo walks
-       </h3>
-       <p>
-        Search upcoming photography meetups; check dates and availability with organisers.
-       </p>
-       <a class="text-link" href="https://www.eventbrite.com.au/d/australia--melbourne/photography/" rel="noopener" target="_blank">
-        Find events / book with organiser &nearrow;
-       </a>
-      </div>
-     </article>
-     <article class="resource" data-type="business">
-      <span class="symbol">
-       ⌂
-      </span>
-      <div>
-       <span class="tag">
-        Local resource
-       </span>
-       <h3>
-        Camera shops in Melbourne
-       </h3>
-       <p>
-        Discover places to browse equipment or ask for camera advice.
-       </p>
-       <a class="text-link" href="https://www.google.com/maps/search/camera+shops+Melbourne/" rel="noopener" target="_blank">
-        Explore local shops &nearrow;
-       </a>
-      </div>
-     </article>
-     <article class="resource" data-type="tutorial">
-      <span class="symbol">
-       ☼
-      </span>
-      <div>
-       <span class="tag">
-        Tutorial
-       </span>
-       <h3>
-        Better phone photography
-       </h3>
-       <p>
-        Simple techniques for framing, natural light and storytelling.
-       </p>
-       <a class="text-link" href="https://www.youtube.com/results?search_query=smartphone+photography+tips+beginners" rel="noopener" target="_blank">
-        Watch tutorials &nearrow;
-       </a>
-      </div>
-     </article>
-    </div>
-    <p class="small">
-     These are discovery links, not verified event listings or bookings managed by HobbyHub.
-    </p>
-   </section>
-   <section>
-    <!-- PHOTO CHALLENGE: Links down to the community discussion. -->
-    <div class="challenge">
-     <div>
-      <div class="eyebrow" style="color:#d8e4d8">
+</div>
+</article>
+</div>
+</section>
+<!-- EXPLORE: Filterable tutorials, external events and local business links. -->
+
+<!-- CURATED RESOURCE FINDER: Concrete recommendations will be added after research. -->
+
+<!-- PERSONAL PHOTO GALLERY: Put your own images in the images folder. -->
+<section id="gallery"><div class="section-head"><div><div class="eyebrow">Behind the lens</div><h2>My photography gallery</h2></div><p>A little space to share my own photos and the stories behind them. Replace the example images with photos you took.</p></div>
+<div class="gallery-grid">
+<figure><img alt="Example landscape photo" loading="lazy" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&amp;fit=crop&amp;w=700&amp;q=80"/><figcaption>01 · Golden hour <small>Example image — replace with images/my-photo-1.jpg</small></figcaption></figure>
+<figure><img alt="Example nature photo" loading="lazy" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&amp;fit=crop&amp;w=700&amp;q=80"/><figcaption>02 · Exploring outdoors <small>Example image — replace with images/my-photo-2.jpg</small></figcaption></figure>
+<figure><img alt="Example photography gear photo" loading="lazy" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&amp;fit=crop&amp;w=700&amp;q=80"/><figcaption>03 · Everyday details <small>Example image — replace with images/my-photo-3.jpg</small></figcaption></figure>
+</div><p class="small">Tip: add your photos to a folder called <code>images</code> in your GitHub repository, then replace each image's <code>src</code> with <code>images/my-photo-1.jpg</code> (and so on).</p>
+</section><section id="explore">
+<div class="section-head"><div><div class="eyebrow">A more useful way to explore</div><h2>Find something that fits you.</h2></div><p>Choose your level and photography interest. HobbyHub will show relevant resource cards instead of sending you to a generic search page.</p></div>
+<div class="finder panel">
+<div class="field"><label for="experience">Your experience</label><select id="experience"><option value="all">Any level</option><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option></select></div>
+<div class="field"><label for="interest">What interests you?</label><select id="interest"><option value="all">All styles</option><option value="phone">Smartphone</option><option value="street">Street &amp; city</option><option value="portrait">Portraits</option><option value="nature">Nature</option></select></div>
+</div>
+<div aria-label="Filter resource types" class="filterbar" role="group"><button aria-pressed="true" class="active" data-filter="all">All resources</button><button aria-pressed="false" data-filter="tutorial">Tutorials</button><button aria-pressed="false" data-filter="event">Events</button><button aria-pressed="false" data-filter="business">Local businesses</button></div>
+<div class="resource-list" id="resourceList">
+<article class="resource" data-interest="phone" data-level="beginner" data-type="tutorial"><span class="symbol">▶</span><div><span class="tag">Tutorial · Beginner · Smartphone</span><h3>Better photos with your phone</h3><p>Focus: framing, natural light and exposure. <strong>Curated video selection coming soon.</strong> We will add a specific creator, video length and direct link.</p><span class="placeholder-label">Selection to be confirmed</span></div></article>
+<article class="resource" data-interest="portrait" data-level="intermediate" data-type="tutorial"><span class="symbol">▶</span><div><span class="tag">Tutorial · Intermediate · Portraits</span><h3>Portraits using natural light</h3><p>Focus: positioning your subject and working with window light. <strong>Recommended tutorial and direct link to be added.</strong></p><span class="placeholder-label">Selection to be confirmed</span></div></article>
+<article class="resource" data-interest="street" data-level="beginner" data-type="event"><span class="symbol">📍</span><div><span class="tag">Melbourne · Beginner · Street</span><h3>Melbourne photo walk</h3><p>Planned listing: organiser, date, meeting point, price, available spots and a <strong>direct booking link</strong> to the organiser.</p><span class="placeholder-label">Event and date to be confirmed</span></div></article>
+<article class="resource" data-interest="nature" data-level="all" data-type="event"><span class="symbol">📍</span><div><span class="tag">Melbourne · Nature</span><h3>Nature photography outing</h3><p>Planned listing: location, accessibility, equipment recommendations and organiser booking details.</p><span class="placeholder-label">Event and date to be confirmed</span></div></article>
+<article class="resource" data-interest="all" data-level="all" data-type="business"><span class="symbol">⌂</span><div><span class="tag">Melbourne · Camera gear</span><h3>Independent camera store spotlight</h3><p>Planned listing: store name, suburb, specialty, price range and direct website link, with a note explaining why we recommend it.</p><span class="placeholder-label">Business selection to be confirmed</span></div></article>
+</div>
+<p class="small" hidden="" id="resourceEmpty">No resources match these filters yet. Try a different combination.</p>
+<p class="small">These are clearly labelled planning examples, not verified events, bookings, businesses or video recommendations. HobbyHub does not provide the activities itself.</p>
+</section>
+<section>
+<!-- PHOTO CHALLENGE: Links down to the community discussion. -->
+<div class="challenge">
+<div>
+<div class="eyebrow" style="color:#d8e4d8">
        Monthly inspiration
       </div>
-      <h2>
+<h2>
        Photo challenge: Small details
       </h2>
-      <p>
+<p>
        Capture a texture, reflection or tiny moment you usually overlook. Share your idea with the community below.
       </p>
-     </div>
-     <a class="btn" href="#community">
+</div>
+<a class="btn" href="#community">
       Share your idea
      </a>
-    </div>
-   </section>
-   <!-- COMMUNITY: Demo discussion board and resource suggestion form. -->
-   <section id="community">
-    <div class="section-head">
-     <div>
-      <div class="eyebrow">
+</div>
+</section>
+<!-- COMMUNITY: Demo discussion board and resource suggestion form. -->
+<section id="community">
+<div class="section-head">
+<div>
+<div class="eyebrow">
        People &amp; ideas
       </div>
-      <h2>
+<h2>
        Community corner
       </h2>
-     </div>
-     <p>
+</div>
+<p>
       A place to ask questions, share recommendations and help others get started.
      </p>
-    </div>
-    <div class="split">
-     <div class="panel">
-      <h3>
+</div>
+<div class="split">
+<div class="panel">
+<h3>
        Discussion board
       </h3>
-      <p class="small">
+<p class="small">
        Demo: new posts appear on this page and are saved only in this browser.
       </p>
-      <div id="posts">
-       <div class="post">
-        <strong>
-         Jamie &middot; Beginner
-        </strong>
-        <p>
-         Where are your favourite places for sunset photos in Melbourne?
-        </p>
-       </div>
-       <div class="post">
-        <strong>
-         Alex &middot; Hobby photographer
-        </strong>
-        <p>
-         I'm trying a 7-day photo challenge. Anyone else interested?
-        </p>
-       </div>
-      </div>
-      <!-- DISCUSSION FORM: Name + message. JavaScript adds a post locally. -->
-      <form id="postForm">
-       <div class="field">
-        <label for="postName">
+<div id="posts"></div>
+<!-- DISCUSSION FORM: Name + message. JavaScript adds a post locally. -->
+<form id="postForm">
+<div class="field">
+<label for="postName">
          Your name
         </label>
-        <input id="postName" maxlength="35" placeholder="e.g. Sam" required=""/>
-       </div>
-       <div class="field">
-        <label for="postText">
+<input id="postName" maxlength="35" placeholder="e.g. Sam" required=""/>
+</div>
+<div class="field">
+<label for="postText">
          Your message
         </label>
-        <textarea id="postText" maxlength="400" placeholder="Ask a question or share an idea..." required="" rows="3"></textarea>
-       </div>
-       <button class="btn" type="submit">
+<textarea id="postText" maxlength="400" placeholder="Ask a question or share an idea..." required="" rows="3"></textarea>
+</div>
+<button class="btn" type="submit">
         Publish post
        </button>
-       <div class="notice" id="postNotice" role="status">
-       </div>
-      </form>
-     </div>
-     <div class="panel">
-      <h3>
+<p class="small">You can reply to any post. Posts and replies are saved in this browser only, not shared with other visitors.</p><div class="notice" id="postNotice" role="status">
+</div>
+</form>
+</div>
+<div class="panel">
+<h3>
        Know a useful resource?
       </h3>
-      <p>
+<p>
        Recommend a photo walk, tutorial, community or business that others might enjoy.
       </p>
-      <!-- RESOURCE FORM: Type, name, URL and optional email. Saves locally. -->
-      <form id="suggestForm">
-       <div class="field">
-        <label for="resourceType">
+<!-- RESOURCE FORM: Type, name, URL and optional email. Saves locally. -->
+<form id="suggestForm">
+<div class="field">
+<label for="resourceType">
          Type of resource
         </label>
-        <select id="resourceType">
-         <option>
+<select id="resourceType">
+<option>
           Event / photo walk
          </option>
-         <option>
+<option>
           Business
          </option>
-         <option>
+<option>
           Tutorial
          </option>
-         <option>
+<option>
           Community group
          </option>
-        </select>
-       </div>
-       <div class="field">
-        <label for="resourceTitle">
+</select>
+</div>
+<div class="field">
+<label for="resourceTitle">
          Name
         </label>
-        <input id="resourceTitle" maxlength="90" placeholder="Name of event or resource" required=""/>
-       </div>
-       <div class="field">
-        <label for="resourceUrl">
+<input id="resourceTitle" maxlength="90" placeholder="Name of event or resource" required=""/>
+</div>
+<div class="field">
+<label for="resourceUrl">
          Website link
         </label>
-        <input id="resourceUrl" placeholder="https://..." required="" type="url"/>
-       </div>
-       <div class="field">
-        <label for="resourceEmail">
+<input id="resourceUrl" placeholder="https://..." required="" type="url"/>
+</div>
+<div class="field">
+<label for="resourceEmail">
          Email (optional)
         </label>
-        <input id="resourceEmail" placeholder="you@example.com" type="email"/>
-       </div>
-       <button class="btn" type="submit">
+<input id="resourceEmail" placeholder="you@example.com" type="email"/>
+</div>
+<button class="btn" type="submit">
         Save suggestion (demo)
        </button>
-       <div class="notice" id="suggestNotice" role="status">
-       </div>
-      </form>
-      <p class="small">
+<div class="notice" id="suggestNotice" role="status">
+</div>
+</form>
+<p class="small">
        Demo only: suggestions are saved locally in your browser and are not sent to HobbyHub or made public.
       </p>
-     </div>
-    </div>
-   </section>
-  </main>
-  <!-- FOOTER: Project name and short tagline. -->
-  <footer>
-   <div class="wrap">
-    <span>
-     &copy; HobbyHub &middot; University project prototype
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER: Project name and short tagline. -->
+<footer>
+<div class="wrap">
+<span>
+     © HobbyHub · University project prototype
     </span>
-    <span>
-     Discover &middot; Learn &middot; Connect
+<span>
+     Discover · Learn · Connect
     </span>
-   </div>
-  </footer>
-  <script>
-   // ============================================================
-// JAVASCRIPT: Makes the page interactive.
-// HTML = content; CSS = design; JavaScript = behaviour.
-// This prototype does NOT have a shared server or database.
+</div>
+</footer>
+<script>
+// ============================================================
+// HOBBYHUB PHOTOGRAPHY - INTERACTIVE DEMO
+// HTML builds content; CSS styles it; JavaScript adds behaviour.
+// No server or shared database is connected in this version.
 // ============================================================
 
-// 1. RESOURCE FILTER BUTTONS
-// Find all buttons with a data-filter attribute (All, Tutorials, Events, Businesses).
-const buttons = document.querySelectorAll('[data-filter]');
-
-// When someone clicks a filter, update the selected button and visible resources.
-buttons.forEach(button => button.addEventListener('click', () => {
-    // Read the category from the clicked button, e.g. "tutorial".
-    const filter = button.dataset.filter;
-
-    // Mark the selected button visually and for screen-reader accessibility.
-    buttons.forEach(other => {
-        other.classList.toggle('active', other === button);
-        other.setAttribute('aria-pressed', String(other === button));
-    });
-
-    // Hide resources that do not match, unless the "All" button was selected.
-    document.querySelectorAll('[data-type]').forEach(item => {
-        item.hidden = filter !== 'all' && item.dataset.type !== filter;
-    });
+// 1. RESOURCE FILTERS: combine resource type, experience and interests.
+const filterButtons = document.querySelectorAll('[data-filter]');
+let selectedType = 'all';
+function updateResources() {
+  const level = document.getElementById('experience').value;
+  const interest = document.getElementById('interest').value;
+  let visible = 0;
+  document.querySelectorAll('#resourceList [data-type]').forEach(card => {
+    const typeOK = selectedType === 'all' || card.dataset.type === selectedType;
+    const levelOK = level === 'all' || card.dataset.level === 'all' || card.dataset.level === level;
+    const interestOK = interest === 'all' || card.dataset.interest === 'all' || card.dataset.interest === interest;
+    card.hidden = !(typeOK && levelOK && interestOK);
+    if (!card.hidden) visible++;
+  });
+  document.getElementById('resourceEmpty').hidden = visible > 0;
+}
+filterButtons.forEach(button => button.addEventListener('click', () => {
+  selectedType = button.dataset.filter;
+  filterButtons.forEach(other => {
+    other.classList.toggle('active', other === button);
+    other.setAttribute('aria-pressed', String(other === button));
+  });
+  updateResources();
 }));
+document.getElementById('experience').addEventListener('change', updateResources);
+document.getElementById('interest').addEventListener('change', updateResources);
 
-// 2. COMMUNITY DISCUSSION POSTS
-// localStorage keeps data in THIS browser only (not visible to other people).
-// The key is the name used to find our saved list later.
-const key = 'hobbyhub_photography_posts_v1';
-let posts = [];
-
-// Load previous posts, if any. try/catch prevents errors if storage is unavailable.
+// 2. DISCUSSION BOARD: posts and replies are stored locally.
+// Use a new key so old demo posts are not mixed with the reply format.
+const postStorageKey = 'hobbyhub_photography_posts_v2';
+const samplePosts = [
+  {name:'Jamie', message:'Where are your favourite places for sunset photos in Melbourne?', replies:[{name:'Alex',message:'I love taking photos around the bay!'}]},
+  {name:'Alex', message:'I am trying a 7-day photo challenge. Anyone interested?', replies:[]}
+];
+let posts;
 try {
-    posts = JSON.parse(localStorage.getItem(key) || '[]');
-    if (!Array.isArray(posts)) posts = [];
-} catch {
-    posts = [];
+  const saved = localStorage.getItem(postStorageKey);
+  posts = saved ? JSON.parse(saved) : samplePosts;
+  if (!Array.isArray(posts)) posts = samplePosts;
+} catch { posts = samplePosts; }
+function savePosts() {
+  try {localStorage.setItem(postStorageKey, JSON.stringify(posts));}
+  catch {document.getElementById('postNotice').textContent='Storage unavailable; changes may disappear on refresh.';}
 }
-
-// This function creates the HTML for one post without inserting unsafe HTML strings.
-function renderPost(name, message) {
-    const div = document.createElement('div'); // A container for the post
-    div.className = 'post';                     // Apply the CSS .post style
-    const strong = document.createElement('strong'); // Author's name
-    strong.textContent = name + ' · Community member';
-    const p = document.createElement('p');      // Post message
-    p.textContent = message;
-    div.append(strong, p);                      // Put name and message inside the post
-    document.getElementById('posts').append(div); // Show it on the page
+// Build DOM elements using textContent to avoid inserting untrusted HTML.
+function makeElement(tag, className, text) {
+  const el = document.createElement(tag);
+  if (className) el.className = className;
+  if (text !== undefined) el.textContent = text;
+  return el;
 }
-
-// Show previously saved posts when the page opens.
-posts.forEach(post => renderPost(post.name, post.message));
-
-// Listen for the discussion form's Submit button.
+function renderPosts() {
+  const container = document.getElementById('posts');
+  container.replaceChildren();
+  posts.forEach((post, index) => {
+    const wrapper = makeElement('div', 'post');
+    wrapper.append(makeElement('strong','',post.name + ' · Community member'));
+    wrapper.append(makeElement('p','',post.message));
+    const replies = makeElement('div','reply-list');
+    (post.replies || []).forEach(reply => {
+      const item = makeElement('div','reply');
+      item.append(makeElement('strong','',reply.name));
+      item.append(makeElement('p','',reply.message));
+      replies.append(item);
+    });
+    wrapper.append(replies);
+    const form = makeElement('form','reply-form');
+    const name = makeElement('input'); name.placeholder='Your name'; name.maxLength=35; name.required=true;
+    const message = makeElement('textarea'); message.placeholder='Write a reply...'; message.rows=2; message.maxLength=400; message.required=true;
+    const button = makeElement('button','btn','Reply'); button.type='submit';
+    form.append(name,message,button);
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const author = name.value.trim(), text = message.value.trim();
+      if (!author || !text) return;
+      if (!Array.isArray(posts[index].replies)) posts[index].replies=[];
+      posts[index].replies.push({name:author,message:text});
+      savePosts(); renderPosts();
+    });
+    wrapper.append(form); container.append(wrapper);
+  });
+}
+renderPosts();
 document.getElementById('postForm').addEventListener('submit', event => {
-    event.preventDefault(); // Do not reload the page when submitting
-    const name = document.getElementById('postName').value.trim();
-    const message = document.getElementById('postText').value.trim();
-    if (!name || !message) return; // Ignore empty values
-
-    posts.push({ name, message }); // Add the new post to our list
-    try {
-        localStorage.setItem(key, JSON.stringify(posts)); // Save it in this browser
-    } catch {
-        // The post still appears now, even if browser storage is blocked.
-    }
-    renderPost(name, message); // Display it immediately
-    event.target.reset(); // Clear the form fields
-    document.getElementById('postNotice').textContent =
-        'Your post was added to this browser-only demo.';
+  event.preventDefault();
+  const name = document.getElementById('postName').value.trim();
+  const message = document.getElementById('postText').value.trim();
+  if (!name || !message) return;
+  posts.unshift({name,message,replies:[]});
+  savePosts(); renderPosts(); event.target.reset();
+  document.getElementById('postNotice').textContent='Your post was saved in this browser-only demo.';
 });
 
-// 3. RESOURCE SUGGESTION FORM
-// Collect the recommended event/business/tutorial and save it locally.
+// 3. RESOURCE SUGGESTIONS: save recommendations locally for demonstration.
 document.getElementById('suggestForm').addEventListener('submit', event => {
-    event.preventDefault(); // Keep the page from refreshing
-    const data = {
-        type: document.getElementById('resourceType').value,
-        title: document.getElementById('resourceTitle').value.trim(),
-        url: document.getElementById('resourceUrl').value,
-        email: document.getElementById('resourceEmail').value
-    };
-    if (!data.title) return;
-
-    try {
-        // Read any existing suggestions and add the new one.
-        const saved = JSON.parse(
-            localStorage.getItem('hobbyhub_photography_suggestions_v1') || '[]'
-        );
-        saved.push(data);
-        localStorage.setItem('hobbyhub_photography_suggestions_v1', JSON.stringify(saved));
-        document.getElementById('suggestNotice').textContent =
-            'Suggestion saved in this browser (demo only).';
-        event.target.reset();
-    } catch {
-        // Explain when saving fails (e.g. private browser restrictions).
-        document.getElementById('suggestNotice').textContent =
-            'Browser storage is unavailable. Suggestion was not saved.';
-    }
+  event.preventDefault();
+  const data = {
+    type:document.getElementById('resourceType').value,
+    title:document.getElementById('resourceTitle').value.trim(),
+    url:document.getElementById('resourceUrl').value.trim(),
+    email:document.getElementById('resourceEmail').value.trim()
+  };
+  if (!data.title) return;
+  try {
+    const key = 'hobbyhub_photography_suggestions_v1';
+    const saved = JSON.parse(localStorage.getItem(key) || '[]');
+    saved.push(data);
+    localStorage.setItem(key,JSON.stringify(saved));
+    document.getElementById('suggestNotice').textContent='Suggestion saved in this browser (demo only).';
+    event.target.reset();
+  } catch {
+    document.getElementById('suggestNotice').textContent='Browser storage is unavailable. Suggestion was not saved.';
+  }
 });
-  </script>
- </body>
+</script>
+</body>
 </html>
-
-
